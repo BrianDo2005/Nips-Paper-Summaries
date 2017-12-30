@@ -61,3 +61,16 @@ ___
    - Train WRN Resnet28 on the imagenet dataset to get baseline weights, then add the additional residual blocks to the network. 
    - Train the new network on each of the 10 datasets and carry out evaluation for the decathlon challenge as explained in the paper. 
    
+ ___
+### Hidding Images in Plain Sight: Deep Steganography
+
+**Link:** https://papers.nips.cc/paper/6802-hiding-images-in-plain-sight-deep-steganography.pdf
+
+**Summary:** This paper proposes a method to hide a secret image into a cover image and finally reveal the secret image by using three neural networks (preparation, hiding and reveal). Unlike other methods, the paper's approach distributes the secret image's representation across all available bits of the cover image.
+
+**To-do** to implement the paper:
+  - Implement Preparation network
+  - Implement Hiding network
+  - Implement Reveal network
+  - Train these three networks with loss function L(c, c', s, s') = ||c-c'|| + B||s-s'|| where c and s are cover and secret image respectively and c' and s' are the container and recovered secret image respectively
+  - Train these three networks with loss function L(c, c', s, s') = ||c-c'|| + B||s-s'|| + Corr(Rc,s) where Rc = ||c-c'|| (added the correlation between residual of the cover image and the secret image)
